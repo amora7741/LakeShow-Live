@@ -1,5 +1,3 @@
-const Home = () => {
-  return <FetchButton />;
-};
+const Home = () => {};
 
 export default Home;
