@@ -1,13 +1,13 @@
-import HeroBackground from '@/components/HeroBackground';
-import HeroContent from '@/components/HeroContent';
-import PulsingCircle from '@/components/PulsingCircle';
+import ShaderBackground from "@/components/ShaderBackground";
+import HeroContent from "@/components/HeroContent";
+import PulsingCircle from "@/components/PulsingCircle";
 
 const Home = () => {
   return (
-    <HeroBackground>
+    <ShaderBackground>
       <HeroContent />
       <PulsingCircle />
-    </HeroBackground>
+    </ShaderBackground>
   );
 };
 

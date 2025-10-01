@@ -1,26 +1,23 @@
-'use client';
+"use client";
 
-import { PulsingBorder } from '@paper-design/shaders-react';
-import { motion } from 'framer-motion';
+import { PulsingBorder } from "@paper-design/shaders-react";
+import { motion } from "framer-motion";
 
 export default function PulsingCircle() {
   return (
-    <button
-      className='absolute bottom-8 right-8 z-30 cursor-pointer transition-transform hover:scale-105 active:scale-95 rounded-full'
-      aria-label='Interactive pulsing circle button'
-    >
-      <div className='relative w-20 h-20 flex items-center justify-center'>
+    <button className="absolute bottom-8 right-8 z-30 cursor-pointer transition-transform hover:scale-105 active:scale-95 rounded-full">
+      <div className="relative w-20 h-20 flex items-center justify-center">
         <PulsingBorder
           colors={[
-            '#E9D5FF',
-            '#C084FC',
-            '#A855F7',
-            '#9333EA',
-            '#7E22CE',
-            '#6B21A8',
-            '#581C87',
+            "#E9D5FF",
+            "#C084FC",
+            "#A855F7",
+            "#9333EA",
+            "#7E22CE",
+            "#6B21A8",
+            "#581C87",
           ]}
-          colorBack='#00000000'
+          colorBack="#00000000"
           speed={1.5}
           roundness={1}
           thickness={0.1}
@@ -34,32 +31,32 @@ export default function PulsingCircle() {
           rotation={0}
           frame={9161408.251009725}
           style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
+            width: "60px",
+            height: "60px",
+            borderRadius: "50%",
           }}
         />
 
         <motion.svg
-          className='absolute inset-0 w-full h-full'
-          viewBox='0 0 100 100'
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 100 100"
           animate={{ rotate: 360 }}
           transition={{
             duration: 20,
             repeat: Number.POSITIVE_INFINITY,
-            ease: 'linear',
+            ease: "linear",
           }}
-          style={{ transform: 'scale(1.6)' }}
+          style={{ transform: "scale(1.6)" }}
         >
           <defs>
             <path
-              id='circle'
-              d='M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0'
+              id="circle"
+              d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
             />
           </defs>
           {Array.from({ length: 5 }, (_, i) => (
-            <text key={i} className='text-sm fill-white/80'>
-              <textPath href='#circle' startOffset={`${i * 20}%`}>
+            <text key={i} className="text-sm fill-white/80">
+              <textPath href="#circle" startOffset={`${i * 20}%`}>
                 sports.
               </textPath>
             </text>
