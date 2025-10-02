@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'LakeShow Live',
-  description: 'The LakeShow is in town! Watch them live here :)',
+  title: 'sports.',
+  description: "Watch sports. That's it.",
 };
 
 export default function RootLayout({
