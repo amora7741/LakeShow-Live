@@ -6,10 +6,14 @@ import { useState } from 'react';
 import ShaderBackground from '@/components/ShaderBackground';
 import { motion } from 'motion/react';
 import { LoaderCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [passcode, setPasscode] = useState('');
   const [loading, setLoading] = useState(false);
+  const [wrongPass, setWrongPass] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +29,14 @@ export default function LoginPage() {
       });
 
       const { auth } = await response.json();
+
+      if (!auth) {
+        return;
+      }
+
+      setTimeout(() => {
+        router.refresh();
+      }, 500);
     } catch (error) {
       console.error(error);
     } finally {
