@@ -5,12 +5,31 @@ import type React from 'react';
 import { useState } from 'react';
 import ShaderBackground from '@/components/ShaderBackground';
 import { motion } from 'motion/react';
+import { LoaderCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const [passcode, setPasscode] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/check-auth', {
+        method: 'POST',
+        body: JSON.stringify({ passcode }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const { auth } = await response.json();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,29 +50,28 @@ export default function LoginPage() {
             </p>
 
             <form onSubmit={handleSubmit} className='space-y-6'>
-              <div>
-                <input
-                  type='text'
-                  inputMode='numeric'
-                  pattern='[0-9]*'
-                  value={passcode}
-                  onChange={handleChange}
-                  placeholder='000000'
-                  className='w-full px-6 py-4 text-center text-3xl font-mono tracking-[0.5em] bg-white/5 border border-white/20 rounded-xl text-white placeholder:text-white/20 transition-all'
-                  maxLength={6}
-                  autoFocus
-                />
-                <div className='mt-2 text-sm text-white/40 text-center'>
-                  {passcode.length}/6 characters
-                </div>
-              </div>
+              <input
+                type='text'
+                inputMode='numeric'
+                pattern='[0-9]*'
+                value={passcode}
+                onChange={handleChange}
+                placeholder='000000'
+                className='w-full px-6 py-4 text-center text-3xl font-mono tracking-[0.5em] bg-white/5 border border-white/20 rounded-xl text-white placeholder:text-white/20 transition-all'
+                maxLength={6}
+                autoFocus
+              />
 
               <button
                 type='submit'
                 disabled={passcode.length !== 6}
-                className='w-full py-4 text-white cursor-pointer bg-purple-700/50 font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                className='flex items-center justify-center w-full py-4 text-white cursor-pointer bg-purple-700/50 font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed'
               >
-                Continue
+                {loading ? (
+                  <LoaderCircle className='animate-spin' />
+                ) : (
+                  'Continue'
+                )}
               </button>
             </form>
           </div>
