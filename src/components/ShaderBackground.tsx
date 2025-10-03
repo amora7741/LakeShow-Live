@@ -8,7 +8,7 @@ interface ShaderBackgroundProps {
 
 const ShaderBackground = ({ children }: ShaderBackgroundProps) => {
   return (
-    <div className='min-h-screen bg-black relative overflow-hidden'>
+    <div className='min-h-dvh bg-black relative overflow-hidden'>
       <svg className='absolute inset-0 w-0 h-0'>
         <defs>
           <filter

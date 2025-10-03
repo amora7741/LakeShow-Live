@@ -51,7 +51,7 @@ export default function LoginPage() {
 
   return (
     <ShaderBackground>
-      <div className='relative z-10 flex items-center justify-center min-h-screen px-4'>
+      <div className='relative z-10 flex items-center justify-center min-h-dvh px-4'>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className=' bg-white/5 border w-full max-w-md border-white/10 rounded-2xl p-8 shadow-2xl'>
             <h1 className='text-4xl font-bold text-white mb-2 text-center'>
