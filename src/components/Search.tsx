@@ -66,7 +66,7 @@ const Search = () => {
           </div>
           <DialogFooter>
             <button
-              className='flex items-center justify-center p-2 px-4 w-20 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
+              className='w-full items-center justify-center p-2 px-4 sm:w-20 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
               type='submit'
             >
               {loading ? <LoaderCircle className='animate-spin' /> : 'Search'}
