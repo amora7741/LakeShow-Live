@@ -14,7 +14,7 @@ const Stream = async ({
 
   console.log(data);
 
-  if (!data) {
+  if (!data || data.length === 0) {
     notFound();
   }
 

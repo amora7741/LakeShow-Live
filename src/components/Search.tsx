@@ -14,12 +14,10 @@ import { Label } from '@/components/ui/label';
 import PulsingCircle from './PulsingCircle';
 import { LoaderCircle, SearchIcon } from 'lucide-react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +27,7 @@ const Search = () => {
 
     const encodedQuery = encodeURIComponent(searchQuery.trim());
 
-    router.push(`/stream?q=${encodedQuery}`);
+    window.location.href = `/match?q=${encodedQuery}`; //ugly
   };
 
   return (
@@ -66,7 +64,7 @@ const Search = () => {
           </div>
           <DialogFooter>
             <button
-              className='w-full items-center justify-center p-2 px-4 sm:w-20 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
+              className='w-full flex items-center justify-center p-2 px-4 sm:w-20 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
               type='submit'
             >
               {loading ? <LoaderCircle className='animate-spin' /> : 'Search'}
