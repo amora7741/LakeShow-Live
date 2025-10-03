@@ -1,10 +1,10 @@
 import ShaderBackground from '@/components/ShaderBackground';
-import PulsingCircle from '@/components/PulsingCircle';
+import { Search } from '@/components/Search';
 
 const Home = () => {
   return (
     <ShaderBackground>
-      <PulsingCircle />
+      <Search />
     </ShaderBackground>
   );
 };
