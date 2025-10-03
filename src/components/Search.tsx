@@ -11,6 +11,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PulsingCircle from './PulsingCircle';
+import { SearchIcon } from 'lucide-react';
 
 export function Search() {
   return (
@@ -21,29 +22,37 @@ export function Search() {
             <PulsingCircle />
           </button>
         </DialogTrigger>
-        <DialogContent className='sm:max-w-[425px]'>
+        <DialogContent className='sm:max-w-3xl bg-transparent backdrop-blur-2xl border-0 text-white'>
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className='text-3xl'>
+              What would you like to watch?
+            </DialogTitle>
+            <DialogDescription className='sr-only'>
               Make changes to your profile here. Click save when you&apos;re
               done.
             </DialogDescription>
           </DialogHeader>
-          <div className='grid gap-4'>
-            <div className='grid gap-3'>
-              <Label htmlFor='name-1'>Name</Label>
-              <Input id='name-1' name='name' defaultValue='Pedro Duarte' />
-            </div>
-            <div className='grid gap-3'>
-              <Label htmlFor='username-1'>Username</Label>
-              <Input id='username-1' name='username' defaultValue='@peduarte' />
+          <div className='grid gap-3'>
+            <Label className='sr-only' htmlFor='team-input'>
+              Input what you want to watch.
+            </Label>
+            <div className='relative'>
+              <SearchIcon className='absolute size-6 top-1' />
+              <Input
+                name='team-input'
+                id='team-input'
+                className='!text-xl pl-10 pb-2 border-0 border-b border-b-white/30 rounded-none focus-visible:border-b-white focus-visible:ring-0'
+                placeholder='Los Angeles Lakers'
+              />
             </div>
           </div>
           <DialogFooter>
-            <DialogClose asChild>
-              <button>Cancel</button>
-            </DialogClose>
-            <button type='submit'>Save changes</button>
+            <button
+              className='mt-8 p-2 px-4 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
+              type='submit'
+            >
+              Search
+            </button>
           </DialogFooter>
         </DialogContent>
       </form>
