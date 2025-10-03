@@ -4,16 +4,12 @@ export const fetchMatch = async (query: string) => {
 
     const matches: MatchData[] = await response.json();
 
-    const desiredMatch = matches.find((match) =>
+    const queryMatches = matches.filter((match) =>
       match.title.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (!desiredMatch) {
-      throw new Error('No match found!');
-    }
-
-    return desiredMatch;
+    return queryMatches;
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching match:', error);
   }
 };

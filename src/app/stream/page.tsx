@@ -1,4 +1,5 @@
 import { fetchMatch } from '@/helpers/fetch-data';
+import { notFound } from 'next/navigation';
 
 const Stream = async ({
   searchParams,
@@ -11,7 +12,19 @@ const Stream = async ({
 
   const data = await fetchMatch(matchQuery);
 
-  return <h1>{queryParam}</h1>;
+  console.log(data);
+
+  if (!data) {
+    notFound();
+  }
+
+  return (
+    <div>
+      {data.map((match) => (
+        <h1 key={match.title}>{match.title}</h1>
+      ))}
+    </div>
+  );
 };
 
 export default Stream;
