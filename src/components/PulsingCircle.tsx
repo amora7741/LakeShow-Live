@@ -3,7 +3,7 @@
 import { PulsingBorder } from '@paper-design/shaders-react';
 import { motion } from 'framer-motion';
 
-export default function PulsingCircle() {
+const PulsingCircle = () => {
   return (
     <div className='relative w-20 h-20 flex items-center justify-center'>
       <PulsingBorder
@@ -63,4 +63,6 @@ export default function PulsingCircle() {
       </motion.svg>
     </div>
   );
-}
+};
+
+export default PulsingCircle;

@@ -1,5 +1,5 @@
 import ShaderBackground from '@/components/ShaderBackground';
-import { Search } from '@/components/Search';
+import Search from '@/components/Search';
 
 const Home = () => {
   return (

@@ -1,6 +1,7 @@
+'use client';
+
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -11,18 +12,35 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PulsingCircle from './PulsingCircle';
-import { SearchIcon } from 'lucide-react';
+import { LoaderCircle, SearchIcon } from 'lucide-react';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-export function Search() {
+const Search = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+
+    setLoading(true);
+
+    const encodedQuery = encodeURIComponent(searchQuery.trim());
+
+    router.push(`/stream?q=${encodedQuery}`);
+  };
+
   return (
     <Dialog>
-      <form>
-        <DialogTrigger asChild>
-          <button className='absolute bottom-8 right-8 z-30 hover:scale-105 active:scale-90 cursor-pointer transition-all rounded-full'>
-            <PulsingCircle />
-          </button>
-        </DialogTrigger>
-        <DialogContent className='sm:max-w-3xl bg-transparent backdrop-blur-2xl border-0 text-white'>
+      <DialogTrigger asChild>
+        <button className='absolute bottom-8 right-8 z-30 hover:scale-105 active:scale-90 cursor-pointer transition-all rounded-full'>
+          <PulsingCircle />
+        </button>
+      </DialogTrigger>
+      <DialogContent className='sm:max-w-3xl bg-transparent backdrop-blur-2xl border-0 text-white'>
+        <form className='grid gap-3' onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle className='text-3xl'>
               What would you like to watch?
@@ -32,30 +50,32 @@ export function Search() {
               done.
             </DialogDescription>
           </DialogHeader>
-          <div className='grid gap-3'>
-            <Label className='sr-only' htmlFor='team-input'>
-              Input what you want to watch.
-            </Label>
-            <div className='relative'>
-              <SearchIcon className='absolute size-6 top-1' />
-              <Input
-                name='team-input'
-                id='team-input'
-                className='!text-xl pl-10 pb-2 border-0 border-b border-b-white/30 rounded-none focus-visible:border-b-white focus-visible:ring-0'
-                placeholder='Los Angeles Lakers'
-              />
-            </div>
+          <Label className='sr-only' htmlFor='team-input'>
+            Input what you want to watch.
+          </Label>
+          <div className='relative mt-2'>
+            <SearchIcon className='absolute size-6 top-1' />
+            <Input
+              name='team-input'
+              id='team-input'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className='!text-xl pl-10 pb-2 mb-8 border-0 border-b border-b-white/30 rounded-none focus-visible:border-b-white focus-visible:ring-0'
+              placeholder='Los Angeles Lakers'
+            />
           </div>
           <DialogFooter>
             <button
-              className='mt-8 p-2 px-4 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
+              className='p-2 px-4 w-20 text-white cursor-pointer bg-purple-700/30 font-semibold rounded-lg'
               type='submit'
             >
-              Search
+              {loading ? <LoaderCircle className='animate-spin' /> : 'Search'}
             </button>
           </DialogFooter>
-        </DialogContent>
-      </form>
+        </form>
+      </DialogContent>
     </Dialog>
   );
-}
+};
+
+export default Search;
