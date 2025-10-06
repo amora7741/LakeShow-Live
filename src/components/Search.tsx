@@ -27,7 +27,7 @@ const Search = () => {
 
     const encodedQuery = encodeURIComponent(searchQuery.trim());
 
-    window.location.href = `/match?q=${encodedQuery}`; //ugly
+    window.location.href = `/matches?q=${encodedQuery}`; //ugly
   };
 
   return (
@@ -37,7 +37,7 @@ const Search = () => {
           <PulsingCircle />
         </button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-3xl bg-transparent backdrop-blur-2xl border-0 text-white'>
+      <DialogContent className='sm:max-w-2xl bg-transparent backdrop-blur-2xl border-0 text-white'>
         <form className='grid gap-3' onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle className='text-3xl'>
