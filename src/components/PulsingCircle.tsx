@@ -8,13 +8,13 @@ const PulsingCircle = () => {
     <div className='relative w-20 h-20 flex items-center justify-center'>
       <PulsingBorder
         colors={[
-          '#E9D5FF',
-          '#C084FC',
-          '#A855F7',
-          '#9333EA',
-          '#7E22CE',
-          '#6B21A8',
-          '#581C87',
+          '#FFFFFF',
+          '#FFFFFF',
+          '#FFFFFF',
+          '#FFFFFF',
+          '#FFFFFF',
+          '#FFFFFF',
+          '#FFFFFF',
         ]}
         colorBack='#00000000'
         speed={1.5}
