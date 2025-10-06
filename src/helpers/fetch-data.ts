@@ -4,9 +4,16 @@ export const fetchMatch = async (query: string) => {
 
     const matches: MatchData[] = await response.json();
 
-    const queryMatches = matches.filter((match) =>
-      match.title.toLowerCase().includes(query.toLowerCase())
-    );
+    const queryWords = query
+      .toLowerCase()
+      .split(/\s+/)
+      .filter((word) => word.length > 0);
+
+    const queryMatches = matches.filter((match) => {
+      const matchTitle = match.title.toLowerCase();
+
+      return queryWords.every((word) => matchTitle.includes(word));
+    });
 
     return queryMatches;
   } catch (error) {
