@@ -1,4 +1,4 @@
-export const fetchMatch = async (query: string) => {
+export const fetchMatches = async (query: string) => {
   try {
     const response = await fetch('https://streamed.pk/api/matches/live');
 

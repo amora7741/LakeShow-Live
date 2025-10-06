@@ -54,7 +54,7 @@ const PulsingCircle = () => {
           />
         </defs>
         {Array.from({ length: 5 }, (_, i) => (
-          <text key={i} className='text-sm fill-white/80'>
+          <text key={i} className='text-sm fill-white/80 font-serif'>
             <textPath href='#circle' startOffset={`${i * 20}%`}>
               sports.
             </textPath>

@@ -1,5 +1,6 @@
 import ShaderBackground from '@/components/ShaderBackground';
-import { fetchMatch } from '@/helpers/fetch-data';
+import { fetchMatches } from '@/helpers/fetch-data';
+import { MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -12,7 +13,7 @@ const Matches = async ({
 
   const matchQuery = decodeURIComponent(queryParam || '');
 
-  const data = await fetchMatch(matchQuery);
+  const data = await fetchMatches(matchQuery);
 
   console.log(data);
 
@@ -28,18 +29,43 @@ const Matches = async ({
 
   return (
     <ShaderBackground>
-      <div className='relative text-white'>
-        <h1 className='text-3xl md:text-5xl'>
-          Multiple matches found for{' '}
-          <span className='italic'>{matchQuery}</span>
+      <div className='relative text-white flex flex-col gap-8 mt-40 mb-12 px-8 max-w-7xl mx-auto'>
+        <h1 className='text-3xl md:text-6xl'>
+          Matches found for{' '}
+          <span className='italic tracking-tighter font-serif'>
+            {matchQuery}
+          </span>
         </h1>
-        <ul>
+
+        <p className='text-white/60'>{data.length} results</p>
+
+        <ul className='grid grid-cols-3 gap-x-8 gap-y-4'>
           {data.map((match) => (
-            <li key={match.title}>
-              <Link href='/'>{match.title}</Link>
+            <li
+              className='h-40 hover:bg-white/10 p-2 -m-2 rounded-lg'
+              key={match.title}
+            >
+              <Link
+                href='/'
+                className='size-full gap-2 grid grid-cols-[1fr_30px]'
+              >
+                <div className='grid grid-rows-[60px_1fr] gap-2'>
+                  <span className='text-xl line-clamp-2 font-serif'>
+                    {match.title}
+                  </span>
+                  <span className='font-medium text-white/60'>
+                    {match.category.toUpperCase()}
+                  </span>
+                </div>
+
+                <MoveUpRight className='justify-self-center size-4 translate-y-2' />
+              </Link>
             </li>
           ))}
         </ul>
+
+        <div className='w-full border border-b-white/60' />
+        <p className='self-center font-sans text-white/60'>End of results</p>
       </div>
     </ShaderBackground>
   );
