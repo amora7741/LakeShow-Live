@@ -39,10 +39,10 @@ const Matches = async ({
 
         <p className='text-white/60'>{data.length} results</p>
 
-        <ul className='grid grid-cols-3 gap-x-8 gap-y-4'>
+        <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4'>
           {data.map((match) => (
             <li
-              className='h-40 hover:bg-white/10 p-2 -m-2 rounded-lg'
+              className='h-40 hover:bg-white/10 p-2 -m-2 rounded-lg group transition-colors'
               key={match.title}
             >
               <Link
@@ -58,7 +58,7 @@ const Matches = async ({
                   </span>
                 </div>
 
-                <MoveUpRight className='justify-self-center size-4 translate-y-2' />
+                <MoveUpRight className='justify-self-center size-4 translate-y-2 -translate-x-2 group-hover:translate-0 transition-transform' />
               </Link>
             </li>
           ))}
