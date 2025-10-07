@@ -65,7 +65,7 @@ const Search = () => {
           <DialogFooter>
             <button
               disabled={searchQuery.trim().length === 0}
-              className='w-full flex items-center justify-center p-2 px-4 sm:w-20 text-white cursor-pointer bg-primary font-semibold rounded-lg disabled:opacity-30 disabled:cursor-not-allowed'
+              className='w-full flex items-center justify-center p-2 px-4 sm:w-20 text-white cursor-pointer bg-primary font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed'
               type='submit'
             >
               {loading ? <LoaderCircle className='animate-spin' /> : 'Search'}

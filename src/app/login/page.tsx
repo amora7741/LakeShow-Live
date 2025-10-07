@@ -77,7 +77,7 @@ export default function LoginPage() {
               <button
                 type='submit'
                 disabled={passcode.length !== 6}
-                className='flex items-center justify-center w-full py-4 text-white cursor-pointer bg-purple-700/50 font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                className='flex items-center justify-center w-full py-4 text-white cursor-pointer bg-primary font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed'
               >
                 {loading ? (
                   <LoaderCircle className='animate-spin' />
