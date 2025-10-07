@@ -20,3 +20,19 @@ export const fetchMatches = async (query: string) => {
     console.error('Error fetching match:', error);
   }
 };
+
+export const fetchMatch = async (matchID: string) => {
+  try {
+    const response = await fetch('https://streamed.pk/api/matches/live');
+
+    const matches: MatchData[] = await response.json();
+
+    const match = matches.find((match) => match.id === matchID);
+
+    return match;
+  } catch (error) {
+    console.error('Error fetching match:', error);
+  }
+};
+
+export const fetchSources = async () => {};

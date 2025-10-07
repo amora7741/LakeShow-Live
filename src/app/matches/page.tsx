@@ -19,12 +19,6 @@ const Matches = async ({
     notFound();
   }
 
-  if (data.length === 1) {
-    const match = data[0];
-
-    console.log(match);
-  }
-
   return (
     <ShaderBackground>
       <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-7xl mx-auto'>
