@@ -15,8 +15,6 @@ const Matches = async ({
 
   const data = await fetchMatches(matchQuery);
 
-  console.log(data);
-
   if (!data || data.length === 0) {
     notFound();
   }
@@ -46,7 +44,7 @@ const Matches = async ({
               key={match.title}
             >
               <Link
-                href='/'
+                href={`/watch/${match.id}`}
                 className='size-full gap-2 grid grid-cols-[1fr_30px]'
               >
                 <div className='grid grid-rows-[60px_1fr] gap-2'>
