@@ -39,10 +39,7 @@ const Matches = async ({
 
         <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4'>
           {data.map((match) => (
-            <li
-              className='h-40 hover:bg-white/10 p-2 -m-2 rounded-lg group transition-colors'
-              key={match.title}
-            >
+            <li className='h-40 group' key={match.title}>
               <Link
                 href={`/watch/${match.id}`}
                 className='size-full gap-2 grid grid-cols-[1fr_30px]'
@@ -51,7 +48,7 @@ const Matches = async ({
                   <span className='text-xl line-clamp-2 font-serif'>
                     {match.title}
                   </span>
-                  <span className='font-medium text-white/60'>
+                  <span className='font-medium text-white/60 group-hover:text-white transition-colors'>
                     {match.category.toUpperCase()}
                   </span>
                 </div>
