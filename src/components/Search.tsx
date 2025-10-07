@@ -40,7 +40,7 @@ const Search = () => {
       <DialogContent className='sm:max-w-2xl bg-transparent backdrop-blur-2xl border-0 text-white'>
         <form className='grid gap-3' onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle className='text-3xl'>
+            <DialogTitle className='md:text-3xl mb-2'>
               What would you like to watch?
             </DialogTitle>
             <DialogDescription className='sr-only'>
@@ -58,7 +58,7 @@ const Search = () => {
               id='team-input'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className='!text-xl pl-10 pb-2 mb-8 border-0 border-b border-b-white/30 rounded-none focus-visible:border-b-white focus-visible:ring-0'
+              className='md:text-xl pl-10 pb-2 mb-8 border-0 border-b border-b-white/30 rounded-none focus-visible:border-b-white focus-visible:ring-0'
               placeholder='Los Angeles Lakers'
             />
           </div>
