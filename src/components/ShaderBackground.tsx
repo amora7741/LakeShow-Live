@@ -50,12 +50,12 @@ const ShaderBackground = ({ children }: ShaderBackgroundProps) => {
 
       <MeshGradient
         className='absolute inset-0 w-full h-full'
-        colors={['#000000', '#6b7280', '#ffffff', '#374151', '#4b5563']}
+        colors={['#000000', '#4b5563', '#1f2937', '#374151', '#6b7280']}
         speed={0.3}
       />
       <MeshGradient
         className='absolute inset-0 w-full h-full opacity-60'
-        colors={['#000000', '#ffffff', '#9ca3af', '#000000']}
+        colors={['#000000', '#6b7280', '#4b5563', '#000000']}
         speed={0.2}
       />
 

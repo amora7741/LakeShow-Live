@@ -28,7 +28,7 @@ const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
 
   return (
     <ShaderBackground>
-      <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-7xl mx-auto'>
+      <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-6xl mx-auto'>
         <div>
           <h1 className='text-2xl sm:text-3xl md:text-5xl mb-2'>
             Streams for{' '}
@@ -58,7 +58,7 @@ const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
                 </span>
               </div>
 
-              <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+              <ul className='grid md:grid-cols-2 gap-4'>
                 {source.streams.map((stream) => (
                   <li key={stream.source + stream.streamNo} className='group'>
                     <Link

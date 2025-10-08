@@ -21,7 +21,7 @@ const Matches = async ({
 
   return (
     <ShaderBackground>
-      <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-7xl mx-auto'>
+      <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-6xl mx-auto'>
         <div>
           <h1 className='text-2xl sm:text-3xl md:text-5xl mb-2'>
             Matches found for{' '}
@@ -37,7 +37,7 @@ const Matches = async ({
 
         <div className='w-full border border-b-white/60' />
 
-        <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-y-4'>
+        <ul className='grid md:grid-cols-2 gap-8 md:gap-y-4'>
           {data.map((match) => (
             <li className='md:h-40 group' key={match.title}>
               <Link
