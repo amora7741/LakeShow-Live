@@ -23,7 +23,7 @@ const Matches = async ({
     <ShaderBackground>
       <div className='relative text-white flex flex-col gap-8 mt-32 mb-12 px-8 max-w-7xl mx-auto'>
         <div>
-          <h1 className='text-2xl sm:text-3xl md:text-6xl mb-2'>
+          <h1 className='text-2xl sm:text-3xl md:text-5xl mb-2'>
             Matches found for{' '}
             <span className='italic tracking-tighter font-serif'>
               {matchQuery}
