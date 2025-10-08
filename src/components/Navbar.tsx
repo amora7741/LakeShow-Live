@@ -17,8 +17,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed inset-x-4 px-4 py-2 top-4 z-50 flex transition-all ${
-        scrolled ? 'bg-white/10 backdrop-blur-sm rounded-lg' : ''
+      className={`fixed inset-x-0 px-8 py-6 top-0 z-50 flex transition-all ${
+        scrolled ? 'bg-white/10 backdrop-blur-sm' : ''
       }`}
     >
       <Link href='/'>
