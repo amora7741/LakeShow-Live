@@ -1,5 +1,5 @@
 import ShaderBackground from '@/components/ShaderBackground';
-import { fetchMatch } from '@/helpers/fetch-data';
+import { fetchMatch, fetchSources } from '@/helpers/fetch-data';
 import { notFound } from 'next/navigation';
 
 const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
@@ -9,7 +9,15 @@ const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
 
   if (!match?.sources?.length) notFound();
 
-  console.log(match.sources);
+  const allStreams = await Promise.all(
+    match.sources.map(async (source) => {
+      const streams = await fetchSources(source.source, source.id);
+      return {
+        source: source.source,
+        streams: streams || [],
+      };
+    })
+  );
 
   return (
     <ShaderBackground>
@@ -22,6 +30,16 @@ const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
         </h1>
 
         <div className='w-full border border-b-white/60' />
+
+        <ul>
+          {allStreams.map((stream, index) => (
+            <li key={index}>
+              <h2 className='text-2xl font-semibold'>
+                {stream.source.charAt(0).toUpperCase() + stream.source.slice(1)}
+              </h2>
+            </li>
+          ))}
+        </ul>
       </div>
     </ShaderBackground>
   );

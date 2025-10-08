@@ -35,4 +35,16 @@ export const fetchMatch = async (matchID: string) => {
   }
 };
 
-export const fetchSources = async () => {};
+export const fetchSources = async (sourceName: string, sourceID: string) => {
+  try {
+    const response = await fetch(
+      `https://streamed.pk/api/stream/${sourceName}/${sourceID}`
+    );
+
+    const streams: Stream[] = await response.json();
+
+    return streams;
+  } catch (error) {
+    console.error('Error fetching streams:', error);
+  }
+};
