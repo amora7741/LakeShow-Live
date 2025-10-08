@@ -88,6 +88,11 @@ const Match = async ({ params }: { params: Promise<{ matchID: string }> }) => {
             </div>
           ))}
         </div>
+
+        <div className='w-full border border-b-white/60' />
+        <p className='text-xs sm:text-sm self-center font-sans text-white/60'>
+          End of streams
+        </p>
       </div>
     </ShaderBackground>
   );
