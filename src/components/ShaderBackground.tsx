@@ -1,7 +1,5 @@
 'use client';
 
-import { MeshGradient } from '@paper-design/shaders-react';
-
 interface ShaderBackgroundProps {
   children: React.ReactNode;
 }
@@ -48,15 +46,28 @@ const ShaderBackground = ({ children }: ShaderBackgroundProps) => {
         </defs>
       </svg>
 
-      <MeshGradient
+      <div
         className='absolute inset-0 w-full h-full'
-        colors={['#000000', '#4b5563', '#1f2937', '#374151', '#6b7280']}
-        speed={0.3}
+        style={{
+          background: `
+            radial-gradient(ellipse at top left, #4b5563 0%, transparent 50%),
+            radial-gradient(ellipse at top right, #1f2937 0%, transparent 50%),
+            radial-gradient(ellipse at bottom left, #374151 0%, transparent 50%),
+            radial-gradient(ellipse at bottom right, #6b7280 0%, transparent 50%),
+            linear-gradient(135deg, #000000 0%, #1f2937 25%, #374151 50%, #4b5563 75%, #000000 100%)
+          `,
+        }}
       />
-      <MeshGradient
+
+      <div
         className='absolute inset-0 w-full h-full opacity-60'
-        colors={['#000000', '#6b7280', '#4b5563', '#000000']}
-        speed={0.2}
+        style={{
+          background: `
+            radial-gradient(circle at 20% 20%, #6b7280 0%, transparent 30%),
+            radial-gradient(circle at 80% 80%, #4b5563 0%, transparent 30%),
+            radial-gradient(circle at 40% 60%, #000000 0%, transparent 40%)
+          `,
+        }}
       />
 
       {children}

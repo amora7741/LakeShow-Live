@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed inset-x-0 px-8 py-6 top-0 z-50 flex transition-all ${
-        scrolled ? 'bg-white/10 backdrop-blur-sm' : ''
+        scrolled ? 'bg-gray-600/10 backdrop-blur-sm' : ''
       }`}
     >
       <Link href='/'>
