@@ -1,6 +1,6 @@
 export const fetchMatches = async (query: string) => {
   try {
-    const response = await fetch('https://streamed.pk/api/matches/live');
+    const response = await fetch('https://streamed.pk/api/matches/all');
 
     const matches: MatchData[] = await response.json();
 
@@ -23,7 +23,7 @@ export const fetchMatches = async (query: string) => {
 
 export const fetchMatch = async (matchID: string) => {
   try {
-    const response = await fetch('https://streamed.pk/api/matches/live');
+    const response = await fetch('https://streamed.pk/api/matches/all');
 
     const matches: MatchData[] = await response.json();
 
